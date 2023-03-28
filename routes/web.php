@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+Route::get('/dados', function () {
     $primeiroRegistro = new agendamentos();
     $primeiroRegistro->nome = "Rodrigo Alves";
     $primeiroRegistro->telefone = "(11)98522-9966";
