@@ -44,41 +44,31 @@
 			</nav>
 		</div>
 		<div class="row">
-			<div class="card mb-3 col-12">
-				<div class="card-body">
-					<h5 class="card-title">Cadastrar - Agendamento de Potenciais Clientes</h5>
-					<p class="card-text">Sistema utilizado para agendamento de serviços.</p>
-                    <form method="post" action="controller/ControllerCadastro.php" id="form" name="form">
-                        <div class="form-group">
-                            <label for="exampleFormControlInput1">Nome:</label>
-                            <input type="text" class="form-control" name="txtNome" required id="txtNome">
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleFormControlInput1">Telefone:</label>
-                            <input type="tel" class="form-control" required name="txtTelefone" id="txtTelefone" placeholder="(xx)xxxxx-xxxx">
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleFormControlSelect1">Origem:</label>
-                            <select class="form-control" required name="txtOrigem" id="txtOrigem">
-                                <option>Celular</option>
-                                <option>Fixo</option>
-                                <option>Whatsapp</option>
-                                <option>Facebook</option>
-                                <option>Instagram</option>
-                                <option>Google Meu Negocio</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleFormControlInput1">Data do Contato:</label>
-                            <input type="date" class="form-control" required name="txtDataContato" id="txtDataContato">
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleFormControlTextarea1">Observação</label>
-                            <textarea class="form-control" name="txtObservacao" id="txtObservacao" rows="3"></textarea>
-                        </div>
-                        <br>
-                        <button type="submit" id="btnInserir" class="btn btn-primary">Cadastrar</button>
-                    </form>
+			<div class="card mb-3 col-12 d-flex justify-content-center">
+				<div class="card-body w-50 m-auto">
+                    <h5 class="card-title">Consultar - Contatos Agendados</h5>
+                    <table class="w-100">
+                        <thead class="bg-primary">
+                            <tr>
+                                <th class="p-3">Nome</th>
+                                <th class="p-3">Telefone</th>
+                                <th class="p-3">Origem</th>
+                                <th class="p-3">Contato</th>
+                                <th class="p-3">Observacão</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($agendamentos as $agendamento)
+                                <tr>
+                                    <td class="border border-secondary p-2">{{ $agendamento->nome }}</td>
+                                    <td class="border border-secondary p-2">{{ $agendamento->telefone }}</td>
+                                    <td class="border border-secondary p-2">{{ $agendamento->origem }}</td>
+                                    <td class="border border-secondary p-2">{{ $agendamento->data_contato }}</td>
+                                    <td class="border border-secondary p-2">{{ $agendamento->observacao }}</td>
+                                </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
 				</div>
 			</div>
 		</div>

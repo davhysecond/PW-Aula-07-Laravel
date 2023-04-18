@@ -15,9 +15,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/consultar', function () {
-    return view('consultar');
-});
+
+Route::get('/consultar', [ClientController::class, 'index']);
 
 Route::get('/', function () {
     return view('index');
