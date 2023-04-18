@@ -48,7 +48,7 @@
 				<div class="card-body">
 					<h5 class="card-title">Cadastrar - Agendamento de Potenciais Clientes</h5>
 					<p class="card-text">Sistema utilizado para agendamento de serviços.</p>
-                    <form method="post" action="/post" id="form" name="form">
+                    <form method="post" action="/client" id="form" name="form">
                         @csrf
                         <div class="form-group">
                             <label for="exampleFormControlInput1">Nome:</label>
