@@ -23,4 +23,10 @@ class ClientController extends Controller
 
         return redirect('/consultar');
     }
+    
+    public function destroy($id) {
+        agendamentos::findOrFail($id)->delete();
+     
+        return redirect('/consultar')->with('message','Agendamento excluido com sucesso!');
+    }
 }

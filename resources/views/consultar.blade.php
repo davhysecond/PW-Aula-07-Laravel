@@ -45,26 +45,40 @@
 		</div>
 		<div class="row">
 			<div class="card mb-3 col-12 d-flex justify-content-center">
-				<div class="card-body w-50 m-auto">
-                    <h5 class="card-title">Consultar - Contatos Agendados</h5>
-                    <table class="w-100">
-                        <thead class="bg-primary">
+				<div class="card-body w-100 m-auto">
+                    <h4 class="card-title">Consultar - Contatos Agendados</h5>
+                    <table class="w-100 table table-striped mt-4">
+                        <thead>
                             <tr>
-                                <th class="p-3">Nome</th>
-                                <th class="p-3">Telefone</th>
-                                <th class="p-3">Origem</th>
-                                <th class="p-3">Contato</th>
-                                <th class="p-3">Observacão</th>
+                                <th scope="col">Id</th>
+                                <th scope="col">Nome</th>
+                                <th scope="col">Telefone</th>
+                                <th scope="col">Origem</th>
+                                <th scope="col">Contato</th>
+                                <th scope="col">Observacão</th>
+                                <th></th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach ($agendamentos as $agendamento)
-                                <tr>
-                                    <td class="border border-secondary p-2">{{ $agendamento->nome }}</td>
-                                    <td class="border border-secondary p-2">{{ $agendamento->telefone }}</td>
-                                    <td class="border border-secondary p-2">{{ $agendamento->origem }}</td>
-                                    <td class="border border-secondary p-2">{{ $agendamento->data_contato }}</td>
-                                    <td class="border border-secondary p-2">{{ $agendamento->observacao }}</td>
+                                <tr class="cursor-pointer">
+                                    <th scope="row">{{ $agendamento->id }}</th>
+                                    <td>{{ $agendamento->nome }}</td>
+                                    <td>{{ $agendamento->telefone }}</td>
+                                    <td>{{ $agendamento->origem }}</td>
+                                    <td>{{ $agendamento->data_contato }}</td>
+                                    <td>{{ $agendamento->observacao }}</td>
+                                    <td>
+                                        <form action="/client/{{ $agendamento->id }}" method="POST">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="btn d-flex">
+                                                <svg  style="width: 20px;" xmlns="http://www.w3.org/2000/svg" fill="auto" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                                                </svg>
+                                            </button>
+                                        </form>
+                                    </td>
                                 </tr>
                             @endforeach
                         </tbody>

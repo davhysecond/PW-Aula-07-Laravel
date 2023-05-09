@@ -23,3 +23,5 @@ Route::get('/', function () {
 });
 
 Route::post('/client', [ClientController::class, 'store']);
+
+Route::delete('/client/{id}', [ClientController::class, 'destroy']);
