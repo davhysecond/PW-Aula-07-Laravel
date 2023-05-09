@@ -33,10 +33,10 @@
                     <div class="collapse navbar-collapse" id="navbarNavDropdown">
                         <ul class="navbar-nav">
                             <li class="nav-item active">
-                                <a class="nav-link" href="index">Cadastrar</a>
+                                <a class="nav-link" href="/">Cadastrar</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="consultar">Consultar</a>
+                                <a class="nav-link" href="/consultar">Consultar</a>
                             </li>
                         </ul>
                     </div>

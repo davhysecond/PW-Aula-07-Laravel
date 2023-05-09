@@ -21,12 +21,24 @@ class ClientController extends Controller
         $agendamentos->observacao = $request->observacao;
         $agendamentos->save();
 
-        return redirect('/consultar');
+        return redirect('/consultar')->with('message','Agendamento cadastrado com sucesso!');;
     }
     
     public function destroy($id) {
         agendamentos::findOrFail($id)->delete();
-     
+        
         return redirect('/consultar')->with('message','Agendamento excluido com sucesso!');
+    }
+    
+    public function edit($id) {
+        $agendamento = agendamentos::findOrFail($id);
+        
+        return view('editar', ['agendamento' => $agendamento]);
+    }
+    
+    public function update(Request $request) {
+        agendamentos::findOrFail($request->id)->update($request->all());
+        
+        return redirect('/consultar')->with('message','Agendamento editado com sucesso!');
     }
 }

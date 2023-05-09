@@ -18,6 +18,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/consultar', [ClientController::class, 'index']);
 
+Route::get('/editar/{id}', [ClientController::class, 'edit']);
+
 Route::get('/', function () {
     return view('index');
 });
@@ -25,3 +27,5 @@ Route::get('/', function () {
 Route::post('/client', [ClientController::class, 'store']);
 
 Route::delete('/client/{id}', [ClientController::class, 'destroy']);
+
+Route::put('/atualizar/{id}', [ClientController::class, 'update']);
